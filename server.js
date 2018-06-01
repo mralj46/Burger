@@ -15,15 +15,15 @@ app.use(bodyParser.urlencoded({
 
 app.use(methodOverride('_method'))
 var exphbs = require('express-handlebars');
-app.engine('hbs', exphbs({
+app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+//app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'handlebars');
 
 var routes = require('./controllers/burgers_controller.js');
 app.use('/', routes);
 
-
+console.log(PORT)
 app.listen(PORT);
